@@ -641,7 +641,7 @@ if __name__ == "__main__":
     # Transform XML datafile to JSON datafile for import to MongoDB
     # pretty_print = False when using full dataset to reduce file space & processing time
     # return_data = False when using full dataset to avoid memory overrun
-    #data = process_map(r'vilnius_lithuania.osm', False, False)
+    data = process_map(r'vilnius_lithuania.osm', False, False)
     
     # Import to MongoDB done via OS shell using mongoimport
 
@@ -652,41 +652,41 @@ if __name__ == "__main__":
     ### CLEANING    
     
     # Clean up streetnames
-    #clean_streetnames_mongodb(coll)
+    clean_streetnames_mongodb(coll)
     
     # Check for redundant streetnames due to abbreviation of first names, etc.
-    #clean_first_and_last_names_in_streets(coll)    
+    clean_first_and_last_names_in_streets(coll)    
     
     # Create file with consolidated unique street names
-    #consolidated_streetnames = write_file_consolidated_streetnames(coll)
+    consolidated_streetnames = write_file_consolidated_streetnames(coll)
     
     # Check if the file contains any streetnames without the expected 
     # denominator for street type - need to correct those manually
-    #detect_streetnames_without_ending(consolidated_streetnames)
+    detect_streetnames_without_ending(consolidated_streetnames)
        
        
     ### ANALYSING
       
-    # general function to run queries against MongoDB
-    run_mongodb_query(coll)
+    # general function to test queries on MongoDB
+    #run_mongodb_query(coll)
       
     # who are top contributing users?
-    #plot_user_contributions(coll)    
+    plot_user_contributions(coll)    
     
     # which streets have most landmarks on them?
-    #show_streets_w_most_landmarks(coll)
+    show_streets_w_most_landmarks(coll)
     
     # What amenities (and types of amenities) are most frequent?
-    #explore_amenities(coll)
+    explore_amenities(coll)
     
     # Which streets have the most of a given type of amenities?
-    #show_top_streets_for_given_amenity(coll)
+    show_top_streets_for_given_amenity(coll)
     
     # Which streets have the most amenities in total?
-    #show_top_streets_for_total_amenities(coll)
+    show_top_streets_for_total_amenities(coll)
     
     # What is the top amenity on each of the top-amenities streets?
-    #show_top_amenity_on_top_streets(coll)
+    show_top_amenity_on_top_streets(coll)
     
     
     
